@@ -1,8 +1,26 @@
+import { Cliente } from "./Cliente.js";
+
 export class ContaCorrente {
     agencia;
-    cliente;
+
+    _cliente;
     
+    // Quando usarmos o set é necessário utilizar o instanceof para validar se a instancia é válida 
+    set cliente(cliente) {
+        if (cliente instanceof Cliente) {
+            this._cliente = cliente;
+        }
+    } 
+
+    get cliente() {
+        return this._cliente;
+    }
+
     _saldo = 0;
+
+    get saldo() {
+        return this._saldo;
+    }
 
     sacar(valor) {
         if (this._saldo >= valor) {
@@ -20,7 +38,7 @@ export class ContaCorrente {
 
     // Transfere de uma conta para outra
     transferir(valor, conta) {
-        const valorSacado = this.sacar(valor);
+        const valorSacado = this.sacar(valor);  
         conta.depositar(valorSacado);
     }
 }

@@ -2,12 +2,11 @@ import { Cliente } from "./Cliente.js";
 import { ContaCorrente } from "./ContaCorrente.js";
 
 const cliente1 = new Cliente();
-cliente1.nome = "Gustavo";
-cliente1.cpf = 11122233390;
-
 const contaCorrenteGustavo = new ContaCorrente();
 contaCorrenteGustavo.agencia = 1001;
 contaCorrenteGustavo.cliente = cliente1;
+contaCorrenteGustavo.cliente.nome = "Gustavo";
+contaCorrenteGustavo.cliente.cpf = 11122233390;
 contaCorrenteGustavo.depositar(200);
 
 const cliente2 = new Cliente();
@@ -20,6 +19,7 @@ contaCorrenteNathalie.cliente = cliente2;
 contaCorrenteNathalie.depositar(200);
 
 contaCorrenteNathalie.transferir(100, contaCorrenteGustavo);
+console.log(contaCorrenteNathalie.saldo);
 
 console.log(contaCorrenteGustavo);
 console.log(contaCorrenteNathalie);
