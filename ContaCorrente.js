@@ -2,8 +2,6 @@ import { Cliente } from "./Cliente.js";
 
 export class ContaCorrente {
     static numeroContasCorrentes = 0;
-    agencia;
-    _cliente;
 
     // Quando usarmos o set é necessário utilizar o instanceof para validar se a instancia é válida 
     set cliente(cliente) {
@@ -16,8 +14,6 @@ export class ContaCorrente {
         return this._cliente;
     }
 
-    _saldo = 0;
-
     get saldo() {
         return this._saldo;
     }
@@ -25,6 +21,7 @@ export class ContaCorrente {
     constructor(cliente, agencia) {
         this.agencia = agencia;
         this.cliente = cliente;
+        this._saldo = 0;
         ContaCorrente.numeroContasCorrentes += 1;
     }
 
