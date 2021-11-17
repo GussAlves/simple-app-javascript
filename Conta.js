@@ -1,10 +1,27 @@
+import { Cliente } from "./Cliente.js";
+
 export class Conta {
-    constructor (saldoInicial, cliente, agencia) {
+    constructor(saldoInicial, cliente, agencia) {
         this._saldo = saldoInicial;
-        this._cliente = cliente; 
+        this._cliente = cliente;
         this._agencia = agencia;
     }
-    
+
+    // Quando usarmos o set é necessário utilizar o instanceof para validar se a instancia é válida 
+    set cliente(cliente) {
+        if (cliente instanceof Cliente) {
+            this._cliente = cliente;
+        }
+    }
+
+    get cliente() {
+        return this._cliente;
+    }
+
+    get saldo() {
+        return this._saldo;
+    }
+
     sacar(valor) {
         if (this._saldo >= valor) {
             this._saldo -= valor;
