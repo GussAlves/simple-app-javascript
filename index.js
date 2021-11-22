@@ -1,4 +1,5 @@
 import { Diretor } from "./Funcionario/Diretor.js";
+import { Funcionario } from "./Funcionario/Funcionario.js";
 import { Gerente } from "./Funcionario/Gerente.js";
 import { SistemaAutenticacao } from "./SistemaAutenticacao.js";
 
