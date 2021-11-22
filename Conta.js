@@ -2,6 +2,10 @@ import { Cliente } from "./Cliente.js";
 
 export class Conta {
     constructor(saldoInicial, cliente, agencia) {
+        if (this.constructor == Conta) {
+            throw new Error("Você não deveria instanciar essa conta");
+        }
+        
         this._saldo = saldoInicial;
         this._cliente = cliente;
         this._agencia = agencia;
@@ -23,10 +27,15 @@ export class Conta {
     }
 
     sacar(valor) {
+        throw new Error("O método sacar é abstrado, não devemos utilizar");
+    }
+
+    _sacar(valor, taxa) {
         if (this._saldo >= valor) {
             this._saldo -= valor;
             return valor;
         }
+        return 0;
     }
 
     depositar(valor) {
